@@ -7,9 +7,10 @@ def main():
     print(numerbers)
 
 def append_random_numbers(numlist,quantity=1):
-    num=random.uniform(0,100)
-    num=round(num,1)
-    numlist.append(num)
+    for _ in range(quantity):
+        num=random.uniform(0,100)
+        num=round(num,1)
+        numlist.append(num)
 
 if __name__=="__main__":
     main()
