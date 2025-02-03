@@ -1,117 +1,102 @@
+from formula import parse_formula  # Importar desde formula.py
+
 def make_periodic_table():
-    """Create and return a list of chemical elements with their names and atomic masses."""
-    periodic_table_list = [
-        ["Ac", "Actinium", 227],
-        ["Ag", "Silver", 107.8682],
-        ["Al", "Aluminum", 26.9815386],
-        ["Ar", "Argon", 39.948],
-        ["As", "Arsenic", 74.9216],
-        ["At", "Astatine", 210],
-        ["Au", "Gold", 196.966569],
-        ["B", "Boron", 10.811],
-        ["Ba", "Barium", 137.327],
-        ["Be", "Beryllium", 9.012182],
-        ["Bi", "Bismuth", 208.9804],
-        ["Br", "Bromine", 79.904],
-        ["C", "Carbon", 12.0107],
-        ["Ca", "Calcium", 40.078],
-        ["Cd", "Cadmium", 112.411],
-        ["Ce", "Cerium", 140.116],
-        ["Cl", "Chlorine", 35.453],
-        ["Co", "Cobalt", 58.933195],
-        ["Cr", "Chromium", 51.9961],
-        ["Cs", "Cesium", 132.9054519],
-        ["Cu", "Copper", 63.546],
-        ["Dy", "Dysprosium", 162.5],
-        ["Er", "Erbium", 167.259],
-        ["Eu", "Europium", 151.964],
-        ["F", "Fluorine", 18.9984032],
-        ["Fe", "Iron", 55.845],
-        ["Fr", "Francium", 223],
-        ["Ga", "Gallium", 69.723],
-        ["Gd", "Gadolinium", 157.25],
-        ["Ge", "Germanium", 72.64],
-        ["H", "Hydrogen", 1.00794],
-        ["He", "Helium", 4.002602],
-        ["Hf", "Hafnium", 178.49],
-        ["Hg", "Mercury", 200.59],
-        ["Ho", "Holmium", 164.93032],
-        ["I", "Iodine", 126.90447],
-        ["In", "Indium", 114.818],
-        ["Ir", "Iridium", 192.217],
-        ["K", "Potassium", 39.0983],
-        ["Kr", "Krypton", 83.798],
-        ["La", "Lanthanum", 138.90547],
-        ["Li", "Lithium", 6.941],
-        ["Lu", "Lutetium", 174.9668],
-        ["Mg", "Magnesium", 24.305],
-        ["Mn", "Manganese", 54.938045],
-        ["Mo", "Molybdenum", 95.96],
-        ["N", "Nitrogen", 14.0067],
-        ["Na", "Sodium", 22.98976928],
-        ["Nb", "Niobium", 92.90638],
-        ["Nd", "Neodymium", 144.242],
-        ["Ne", "Neon", 20.1797],
-        ["Ni", "Nickel", 58.6934],
-        ["Np", "Neptunium", 237],
-        ["O", "Oxygen", 15.9994],
-        ["Os", "Osmium", 190.23],
-        ["P", "Phosphorus", 30.973762],
-        ["Pa", "Protactinium", 231.03588],
-        ["Pb", "Lead", 207.2],
-        ["Pd", "Palladium", 106.42],
-        ["Pm", "Promethium", 145],
-        ["Po", "Polonium", 209],
-        ["Pr", "Praseodymium", 140.90765],
-        ["Pt", "Platinum", 195.084],
-        ["Pu", "Plutonium", 244],
-        ["Ra", "Radium", 226],
-        ["Rb", "Rubidium", 85.4678],
-        ["Re", "Rhenium", 186.207],
-        ["Rh", "Rhodium", 102.9055],
-        ["Rn", "Radon", 222],
-        ["Ru", "Ruthenium", 101.07],
-        ["S", "Sulfur", 32.065],
-        ["Sb", "Antimony", 121.76],
-        ["Sc", "Scandium", 44.955912],
-        ["Se", "Selenium", 78.96],
-        ["Si", "Silicon", 28.0855],
-        ["Sm", "Samarium", 150.36],
-        ["Sn", "Tin", 118.71],
-        ["Sr", "Strontium", 87.62],
-        ["Ta", "Tantalum", 180.94788],
-        ["Tb", "Terbium", 158.92535],
-        ["Tc", "Technetium", 98],
-        ["Te", "Tellurium", 127.6],
-        ["Th", "Thorium", 232.03806],
-        ["Ti", "Titanium", 47.867],
-        ["Tl", "Thallium", 204.3833],
-        ["Tm", "Thulium", 168.93421],
-        ["U", "Uranium", 238.02891],
-        ["V", "Vanadium", 50.9415],
-        ["W", "Tungsten", 183.84],
-        ["Xe", "Xenon", 131.293],
-        ["Y", "Yttrium", 88.90585],
-        ["Yb", "Ytterbium", 173.054],
-        ["Zn", "Zinc", 65.38],
-        ["Zr", "Zirconium", 91.224]
-    ]
-    return periodic_table_list
+    """Crear y devolver un diccionario con los elementos de la tabla periódica."""
+    periodic_table_dict = {
+        "H": ["Hydrogen", 1.00794, 1],
+        "He": ["Helium", 4.002602, 2],
+        "Li": ["Lithium", 6.941, 3],
+        "Be": ["Beryllium", 9.012182, 4],
+        "B": ["Boron", 10.811, 5],
+        "C": ["Carbon", 12.0107, 6],
+        "N": ["Nitrogen", 14.0067, 7],
+        "O": ["Oxygen", 15.9994, 8],
+        "F": ["Fluorine", 18.9984032, 9],
+        "Ne": ["Neon", 20.1797, 10],
+        "Na": ["Sodium", 22.98976928, 11],
+        "Mg": ["Magnesium", 24.305, 12],
+        "Al": ["Aluminum", 26.9815386, 13],
+        "Si": ["Silicon", 28.0855, 14],
+        "P": ["Phosphorus", 30.973762, 15],
+        "S": ["Sulfur", 32.065, 16],
+        "Cl": ["Chlorine", 35.453, 17],
+        "K": ["Potassium", 39.0983, 19],
+        "Ca": ["Calcium", 40.078, 20],
+        "Fe": ["Iron", 55.845, 26],
+        "Cu": ["Copper", 63.546, 29],
+        "Zn": ["Zinc", 65.38, 30],
+        "Ag": ["Silver", 107.8682, 47],
+        "I": ["Iodine", 126.90447, 53],
+        "Au": ["Gold", 196.966569, 79]
+    }
+    return periodic_table_dict
+
+# Índices para acceder a los datos en el diccionario
+NAME_INDEX = 0
+ATOMIC_MASS_INDEX = 1
+ATOMIC_NUMBER_INDEX = 2  # Nuevo índice para contar protones
+
+def compute_molar_mass(symbol_quantity_list, periodic_table_dict):
+    """Calcular y devolver la masa molar total de los elementos en symbol_quantity_list."""
+    total_molar_mass = 0
+    for symbol, quantity in symbol_quantity_list:
+        atomic_mass = periodic_table_dict[symbol][ATOMIC_MASS_INDEX]
+        total_molar_mass += atomic_mass * quantity
+    return total_molar_mass
+
+def sum_protons(symbol_quantity_list, periodic_table_dict):
+    """Calcular y devolver el número total de protones en una molécula."""
+    total_protons = 0
+    for symbol, quantity in symbol_quantity_list:
+        atomic_number = periodic_table_dict[symbol][ATOMIC_NUMBER_INDEX]
+        total_protons += atomic_number * quantity
+    return total_protons
+
+def get_formula_name(formula, known_molecules_dict):
+    """Buscar el nombre de una fórmula química en un diccionario de moléculas conocidas."""
+    return known_molecules_dict.get(formula, "Unknown Compound")
 
 def main():
-    """Main function to get user input and display the periodic table elements."""
-    # Obtener la fórmula química del usuario
-    formula = input("Enter the chemical formula of the molecule: ")
+    """Función principal para calcular la masa molar de un compuesto químico."""
+    # Diccionario de moléculas conocidas
+    known_molecules_dict = {
+        "H2O": "Water",
+        "C6H12O6": "Glucose",
+        "CH4": "Methane",
+        "C2H6O": "Ethanol",
+        "CO2": "Carbon Dioxide",
+        "O2": "Oxygen Gas"
+    }
 
-    # Obtener la masa de la muestra en gramos
-    sample_mass = float(input("Enter the mass of the sample in grams: "))
+    # Obtener la fórmula molecular del usuario
+    formula = input("Enter the molecular formula of the sample: ")
 
-    # Obtener la tabla periódica
+    # Obtener la masa en gramos de la muestra
+    sample_mass = float(input("Enter the mass in grams of the sample: "))
+
+    # Crear la tabla periódica
     periodic_table = make_periodic_table()
 
-    # Imprimir el nombre y la masa atómica de cada elemento
-    for element in periodic_table:
-        print(f"{element[1]} {element[2]}")
+    # Analizar la fórmula química
+    symbol_quantity_list = parse_formula(formula, periodic_table)
+
+    # Calcular la masa molar
+    molar_mass = compute_molar_mass(symbol_quantity_list, periodic_table)
+
+    # Calcular el número de moles
+    number_of_moles = sample_mass / molar_mass
+
+    # Obtener el nombre de la fórmula si es conocida
+    formula_name = get_formula_name(formula, known_molecules_dict)
+
+    # Calcular el número de protones
+    total_protons = sum_protons(symbol_quantity_list, periodic_table)
+
+    # Imprimir resultados
+    print(f"\nFormula Name: {formula_name}")
+    print(f"Molar Mass: {molar_mass:.5f} grams/mole")
+    print(f"Number of Moles: {number_of_moles:.5f} moles")
+    print(f"Total Protons: {total_protons}")
 
 if __name__ == "__main__":
     main()
