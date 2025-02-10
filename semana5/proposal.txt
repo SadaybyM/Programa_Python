@@ -1,0 +1,150 @@
+CSE 111 Proposal for a Student Chosen Program
+Sadayby Herra
+
+1. What is the title of your program?
+VetCare Receipt System A system for managing veterinary clinic product sales and customer invoices.
+
+2. What real-world problem will your program address or help to solve?
+Real-World Problem: Veterinary clinics often need an efficient way to track product sales, generate receipts, and calculate totals, including taxes and discounts. VetCare Receipt System solves this problem by automating invoice generation for pet care products.
+
+The system reads from two CSV files:
+products.csv: Contains a list of available products.
+requests.csv: Contains customer purchase requests.
+It calculates totals, applies discounts, adds tax, and generates a receipt.
+The receipt includes a return policy date and a countdown to the clinic’s New Year’s promotion.
+This system will help reduce human errors, speed up transactions, and improve customer experience.
+
+3. What will you learn from developing this program?
+Developing the VetCare Receipt System will help me gain and improve several technical and problem-solving skills, including:
+
+- File Handling with CSVs
+
+Reading and processing structured data from CSV files.
+Handling missing or malformed CSV data.
+- Working with Python Dictionaries
+
+Efficiently storing and retrieving product information using dictionaries.
+Using keys for quick lookup rather than looping through lists.
+- Error Handling & Exception Management
+
+Handling FileNotFoundError, KeyError, and PermissionError gracefully.
+Ensuring the program does not crash when files are missing or contain incorrect data.
+- Mathematical Calculations for Transactions
+
+Implementing subtotal, tax calculations, and discounts.
+Applying special pricing like buy-one-get-one-half-off dynamically.
+- Date & Time Manipulation with datetime
+
+Generating timestamps for receipts.
+Calculating a return policy date (30 days after purchase).
+Showing days until the next promotion (New Year’s Sale).
+- Structuring a Modular Python Program
+
+Writing reusable, testable functions instead of long, unstructured code.
+Following best practices in software design.
+- Writing Unit Tests
+
+Using test functions to ensure correctness before deployment.
+Implementing test cases to verify business logic before real-world use.
+
+4. What Python modules will your program use?
+csv → For reading and writing CSV files containing product and request data.
+datetime → For handling timestamps, return policies, and promotions.
+os → To check for file existence before attempting to open them.
+sys → To gracefully exit the program in case of critical errors.
+
+5. List the names of functions you will need?
+- read_dictionary(filename, key_column_index)
+
+Reads a CSV file and returns a dictionary where the keys are the values of the specified column.
+Used to load product data into memory efficiently.
+- calculate_total(quantity, price, discount=0)
+
+Computes the total amount payable, applying optional discounts.
+- apply_discount(product_code, quantity, price)
+
+Checks if a product is eligible for discounts (e.g., buy-one-get-one-half-off).
+Returns the correctly calculated price after the discount is applied.
+- generate_receipt(requests, products_dictionary)
+
+Formats and prints the receipt with totals, tax, and discounts.
+Includes additional information like return policy and promotional countdown.
+- main()
+
+Controls the entire program flow by calling functions in sequence.
+Loads products.csv and requests.csv.
+Handles errors gracefully if files are missing or contain incorrect data.
+
+6. List the names of the test functions you will write.
+test_read_dictionary()
+
+Ensures the function correctly loads data into a dictionary.
+Test Cases:
+Valid CSV file 
+Missing CSV file 
+Incorrectly formatted CSV 
+test_calculate_total()
+
+Tests total calculation with different price and discount values.
+Test Cases:
+Normal price 
+Discount applied 
+Negative or zero quantity 
+test_apply_discount()
+
+Verifies that promotions like buy-one-get-one-half-off are applied correctly.
+Test Cases:
+Product with discount 
+Product without discount 
+Single item purchase (should be full price) 
+test_generate_receipt()
+
+Validates the receipt format and correctness.
+Test Cases:
+All items present 
+Missing product in product list 
+Zero items requested 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
